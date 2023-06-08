@@ -13,66 +13,73 @@ uint8_t ex_int_init(uint8_t ex_int_number, uint8_t ex_int_mode)
 	Set_Bit(SREG,7);
 	if(ex_int_number == Interrupt_0)
 	{
-		switch(ex_int_mode)
+		if(ex_int_mode == low_level)
 		{
-			case low_level:
-				Clear_Bit(MCUCR,0);
-				Clear_Bit(MCUCR,1);
-				break;
-			case any_logical_change:
-				Set_Bit(MCUCR,0);
-				Clear_Bit(MCUCR,1);
-				break;
-			case falling_edge:
-				Clear_Bit(MCUCR,0);
-				Set_Bit(MCUCR,1);
-				break;
-			case rising_edge:
-				Set_Bit(MCUCR,0);
-				Set_Bit(MCUCR,1);
-				break;
-			default:
-				error=1;
+			Clear_Bit(MCUCR,0);
+			Clear_Bit(MCUCR,1);
+		}
+		else if(ex_int_mode == any_logical_change)
+		{
+			Set_Bit(MCUCR,0);
+			Clear_Bit(MCUCR,1);
+		}
+		else if(ex_int_mode == falling_edge)
+		{
+			Clear_Bit(MCUCR,0);
+			Set_Bit(MCUCR,1);
+		}
+		else if(ex_int_mode == rising_edge)
+		{
+			Set_Bit(MCUCR,0);
+			Set_Bit(MCUCR,1);
+		}
+		else
+		{
+			error = 1;
 		}
 		Set_Bit(GICR,6);
 	}
 	else if(ex_int_number == Interrupt_1)
 	{
-		switch(ex_int_mode)
+		if(ex_int_mode == low_level)
 		{
-			case low_level:
 			Clear_Bit(MCUCR,2);
 			Clear_Bit(MCUCR,3);
-			break;
-			case any_logical_change:
+		}
+		else if(ex_int_mode == any_logical_change)
+		{
 			Set_Bit(MCUCR,2);
 			Clear_Bit(MCUCR,3);
-			break;
-			case falling_edge:
+		}
+		else if(ex_int_mode == falling_edge)
+		{
 			Clear_Bit(MCUCR,2);
 			Set_Bit(MCUCR,3);
-			break;
-			case rising_edge:
+		}
+		else if(ex_int_mode == rising_edge)
+		{
 			Set_Bit(MCUCR,2);
 			Set_Bit(MCUCR,3);
-			break;
-			default:
-			error=1;
+		}
+		else
+		{
+			error = 1;
 		}
 		Set_Bit(GICR,7);
 	}
 	else if(ex_int_number == Interrupt_2)
 	{
-		switch(ex_int_mode)
+		if(ex_int_mode == falling_edge)
 		{
-			case falling_edge:
-				Clear_Bit(MCUCSR,6);
-				break;
-			case rising_edge:
-				Set_Bit(MCUCSR,6);
-				break;
-			default:
-				error=1;
+			Clear_Bit(MCUCSR,6);
+		}
+		else if(ex_int_mode == rising_edge)
+		{
+			Set_Bit(MCUCSR,6);
+		}
+		else
+		{
+			error=1;
 		}
 		Set_Bit(GICR,5);
 	}

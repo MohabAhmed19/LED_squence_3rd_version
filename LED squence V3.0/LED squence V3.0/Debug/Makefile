@@ -40,7 +40,6 @@ SUBDIRS :=  \
 ../MCAL/DIO \
 ../MCAL/Interrupt \
 ../ECUAL \
-../MCAL/Timer_2 \
 ../MCAL/Timer_0 \
 ../utils
 
