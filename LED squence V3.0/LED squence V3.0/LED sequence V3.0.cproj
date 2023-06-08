@@ -190,7 +190,6 @@
     <Folder Include="MCAL\DIO" />
     <Folder Include="MCAL\Interrupt" />
     <Folder Include="ECUAL" />
-    <Folder Include="MCAL\Timer_2" />
     <Folder Include="MCAL\Timer_0" />
     <Folder Include="utils" />
   </ItemGroup>
