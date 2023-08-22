@@ -11,6 +11,7 @@
 uint8_t PB_init(uint8_t Port_number, uint8_t Pin_number)
 {
 	DIO_init(Port_number, Pin_number, in);
+	return 0;
 }
 
 uint8_t PB_state(uint8_t Port_number, uint8_t Pin_number, uint8_t *state)

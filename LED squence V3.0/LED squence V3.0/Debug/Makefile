@@ -41,11 +41,13 @@ SUBDIRS :=  \
 ../MCAL/Interrupt \
 ../ECUAL \
 ../MCAL/Timer_0 \
+../APP \
 ../utils
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../APP/APP.c \
 ../ECUAL/Delay/Delay.c \
 ../ECUAL/LED/LED.c \
 ../ECUAL/Push_button/Push_button.c \
@@ -62,6 +64,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+APP/APP.o \
 ECUAL/Delay/Delay.o \
 ECUAL/LED/LED.o \
 ECUAL/Push_button/Push_button.o \
@@ -71,6 +74,7 @@ MCAL/Interrupt/interrupt.o \
 MCAL/Timer_0/Timer_0.o
 
 OBJS_AS_ARGS +=  \
+APP/APP.o \
 ECUAL/Delay/Delay.o \
 ECUAL/LED/LED.o \
 ECUAL/Push_button/Push_button.o \
@@ -80,6 +84,7 @@ MCAL/Interrupt/interrupt.o \
 MCAL/Timer_0/Timer_0.o
 
 C_DEPS +=  \
+APP/APP.d \
 ECUAL/Delay/Delay.d \
 ECUAL/LED/LED.d \
 ECUAL/Push_button/Push_button.d \
@@ -89,6 +94,7 @@ MCAL/Interrupt/interrupt.d \
 MCAL/Timer_0/Timer_0.d
 
 C_DEPS_AS_ARGS +=  \
+APP/APP.d \
 ECUAL/Delay/Delay.d \
 ECUAL/LED/LED.d \
 ECUAL/Push_button/Push_button.d \
@@ -111,6 +117,13 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+APP/APP.o: ../APP/APP.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 ECUAL/Delay/Delay.o: ../ECUAL/Delay/Delay.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0

@@ -16,12 +16,12 @@
 #include "../../MCAL/Timer_0/Timer_0.h"
 
 
-void delay_100ms(void);
-void delay_900ms(void);
-void delay_200ms(void);
-void delay_800ms(void);
-void delay_300ms(void);
-void delay_700ms(void);
-void delay_500ms(void);
+int delay_100ms(void);
+int delay_900ms(void);
+int delay_200ms(void);
+int delay_800ms(void);
+int delay_300ms(void);
+int delay_700ms(void);
+int delay_500ms(void);
 
 #endif /* DELAY_H_ */

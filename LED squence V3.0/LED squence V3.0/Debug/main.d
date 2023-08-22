@@ -25,7 +25,7 @@ main.d main.o: .././main.c .././utils/registers.h .././utils/STD_TYPES.h \
  .././ECUAL/Delay/../../utils/registers.h \
  .././ECUAL/Delay/../../utils/utilities.h \
  .././ECUAL/Delay/../../MCAL/Interrupt/Interrupt.h \
- .././ECUAL/Delay/../../MCAL/Timer_0/Timer_0.h
+ .././ECUAL/Delay/../../MCAL/Timer_0/Timer_0.h .././APP/APP.h
 
 .././utils/registers.h:
 
@@ -90,3 +90,5 @@ main.d main.o: .././main.c .././utils/registers.h .././utils/STD_TYPES.h \
 .././ECUAL/Delay/../../MCAL/Interrupt/Interrupt.h:
 
 .././ECUAL/Delay/../../MCAL/Timer_0/Timer_0.h:
+
+.././APP/APP.h:

@@ -133,6 +133,12 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="APP\APP.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="APP\APP.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="ECUAL\Delay\Delay.c">
       <SubType>compile</SubType>
     </Compile>
@@ -191,6 +197,7 @@
     <Folder Include="MCAL\Interrupt" />
     <Folder Include="ECUAL" />
     <Folder Include="MCAL\Timer_0" />
+    <Folder Include="APP" />
     <Folder Include="utils" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
